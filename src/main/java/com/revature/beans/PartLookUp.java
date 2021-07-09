@@ -17,10 +17,10 @@ public class PartLookUp {
 	@Column(name="id", insertable=false, updatable=false)
 	private int id;
 	private String name;
-	private float price;
+	private int price;
 	private float time;
 	//constructors
-	public PartLookUp(int id, String name, float price, float time) {
+	public PartLookUp(int id, String name, int price, float time) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -67,10 +67,10 @@ public class PartLookUp {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public float getTime() {

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.revature.beans.Employee;
 
 @Repository
-public interface IEmployeeRepo extends CrudRepository<Employee, Integer>{
-
+public interface IEmployeeRepo extends CrudRepository<Employee, Integer> {
+	Employee findByUsernameAndPassword(String username, String password);
 }
