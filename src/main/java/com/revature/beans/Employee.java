@@ -16,6 +16,7 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="employee_id_seq")
 	@Column(name="id", insertable=false, updatable=false)
 	private int id;
+	@Column(name="jobtitle")
 	private String jobTitle;
 	private String username;
 	private String password;

@@ -1,7 +1,6 @@
 package com.revature.beans;
 
-import java.text.SimpleDateFormat;
-import java.util.Objects;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,12 +25,13 @@ public class WorkOrder {
 	@JoinColumn(name="employeeid")
 	private Employee employee;
 	private String description;
-	private SimpleDateFormat date;
+	@Column(name="startdate")
+	private Date date;
 	private float cost;
 	private boolean complete;
 	
 	//constructors
-	public WorkOrder(int id, Vehicle vehicleId, Employee employeeId, String description, SimpleDateFormat date, float cost, boolean complete) {
+	public WorkOrder(int id, Vehicle vehicleId, Employee employeeId, String description, Date date, float cost, boolean complete) {
 		super();
 		this.id = id;
 		this.vehicle = vehicleId;
@@ -129,10 +129,10 @@ public class WorkOrder {
 	}
 	
 	//if replaceing date with string comment this out
-	public SimpleDateFormat getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(SimpleDateFormat date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	/*getter and setter for date string

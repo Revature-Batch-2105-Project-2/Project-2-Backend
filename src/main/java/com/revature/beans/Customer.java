@@ -16,8 +16,11 @@ public class Customer {
 	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="customer_id_seq")
 	@Column(name="id", insertable=false, updatable=false)
 	private int id;
+	@Column(name="firstname")
 	private String firstName;
+	@Column(name="lastname")
 	private String lastName;
+	@Column(name="phonenumber")
 	private String phoneNumber;
 	private String email;
 	
