@@ -44,10 +44,18 @@ public class WorkOrder {
 	public WorkOrder() {
 		super();
 	}
-	//other methods
 	@Override
 	public int hashCode() {
-		return Objects.hash(date, description, employee, id, vehicle, cost,complete);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (complete ? 1231 : 1237);
+		result = prime * result + Float.floatToIntBits(cost);
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((vehicle == null) ? 0 : vehicle.hashCode());
+		return result;
 	}
 
 	@Override
@@ -59,8 +67,33 @@ public class WorkOrder {
 		if (getClass() != obj.getClass())
 			return false;
 		WorkOrder other = (WorkOrder) obj;
-		return Objects.equals(date, other.date) && Objects.equals(description, other.description)
-				&& employee == other.employee && id == other.id && vehicle == other.vehicle;
+		if (complete != other.complete)
+			return false;
+		if (Float.floatToIntBits(cost) != Float.floatToIntBits(other.cost))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (employee == null) {
+			if (other.employee != null)
+				return false;
+		} else if (!employee.equals(other.employee))
+			return false;
+		if (id != other.id)
+			return false;
+		if (vehicle == null) {
+			if (other.vehicle != null)
+				return false;
+		} else if (!vehicle.equals(other.vehicle))
+			return false;
+		return true;
 	}
 	@Override
 	public String toString() {
