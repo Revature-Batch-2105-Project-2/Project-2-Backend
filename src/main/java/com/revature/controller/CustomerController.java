@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,26 +26,31 @@ public class CustomerController {
 		this.cs = cs;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<Customer> getAll() {
 		return this.cs.getAll();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public Customer getById(@PathVariable("id") int id) {
 		return this.cs.get(id);
 	}
 	
-	@PutMapping("/add")
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PostMapping("/add")
 	public Customer add(@RequestBody Customer c) {
 		return this.cs.add(c);
 	}
 	
-	@PostMapping("/update")
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PutMapping("/update")
 	public Customer update(@RequestBody Customer c) {
 		return this.cs.update(c);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.cs.delete(id);

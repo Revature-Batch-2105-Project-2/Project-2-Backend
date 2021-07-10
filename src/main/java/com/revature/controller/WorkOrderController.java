@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,26 +26,31 @@ public class WorkOrderController {
 		this.wos = wos;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<WorkOrder> getAll() {
 		return this.wos.getAll();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public WorkOrder getById(@PathVariable("id") int id) {
 		return this.wos.get(id);
 	}
 	
-	@PutMapping("/add")
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PostMapping("/add")
 	public WorkOrder add(@RequestBody WorkOrder c) {
 		return this.wos.add(c);
 	}
 	
-	@PostMapping("/update")
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PutMapping("/update")
 	public WorkOrder update(@RequestBody WorkOrder c) {
 		return this.wos.update(c);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.wos.delete(id);

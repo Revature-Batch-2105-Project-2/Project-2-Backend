@@ -1,8 +1,10 @@
 package com.revature.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,6 +50,23 @@ public class EmployeeController {
 //		}
 //	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PostMapping("/log_in")
+	public Employee login(@RequestBody Map<String, String> loginInfo) {
+		// TODO: placeholder!!!
+		Employee e = this.es.getByUsernameAndPassword(loginInfo.get("username"), loginInfo.get("password"));
+		System.out.println("Employee " + e + " logged in!");
+		return e;
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PostMapping("/log_out")
+	public boolean logout() {
+		// TODO: placeholder!!!
+		return true;
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<Employee> getAll() {
 		return this.es.getAll();
@@ -58,16 +77,19 @@ public class EmployeeController {
 		return this.es.get(id);
 	}
 	
-	@PutMapping("/add")
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PostMapping("/add")
 	public Employee add(@RequestBody Employee c) {
 		return this.es.add(c);
 	}
 	
-	@PostMapping("/update")
+	@CrossOrigin(origins = "http://localhost:4200/")
+	@PutMapping("/update")
 	public Employee update(@RequestBody Employee c) {
 		return this.es.update(c);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.es.delete(id);
