@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,26 +26,31 @@ public class VehicleController {
 		this.vs = vs;
 	}
 	
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<Vehicle> getAll() {
 		return this.vs.getAll();
 	}
 	
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public Vehicle getById(@PathVariable("id") int id) {
 		return this.vs.get(id);
 	}
 	
-	@PutMapping("/add")
+//	@CrossOrigin(origins = "http://localhost:4200/")
+	@PostMapping("/add")
 	public Vehicle add(@RequestBody Vehicle c) {
 		return this.vs.add(c);
 	}
 	
-	@PostMapping("/update")
+//	@CrossOrigin(origins = "http://localhost:4200/")
+	@PutMapping("/update")
 	public Vehicle update(@RequestBody Vehicle c) {
 		return this.vs.update(c);
 	}
 	
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.vs.delete(id);
