@@ -17,6 +17,7 @@ import com.revature.beans.WorkOrder;
 import com.revature.services.WorkOrderService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(path="/workorders")
 public class WorkOrderController {
 	private WorkOrderService wos;
@@ -26,31 +27,26 @@ public class WorkOrderController {
 		this.wos = wos;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<WorkOrder> getAll() {
 		return this.wos.getAll();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public WorkOrder getById(@PathVariable("id") int id) {
 		return this.wos.get(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/add")
 	public WorkOrder add(@RequestBody WorkOrder c) {
 		return this.wos.add(c);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
 	@PutMapping("/update")
 	public WorkOrder update(@RequestBody WorkOrder c) {
 		return this.wos.update(c);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.wos.delete(id);

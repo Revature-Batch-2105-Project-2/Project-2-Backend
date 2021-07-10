@@ -17,11 +17,12 @@ public class Project2Application {
 		SpringApplication.run(Project2Application.class, args);
 	}
 	
+	// TODO: this doesn't work in its current configuration, should it be changed or removed?
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/*").allowedOrigins("http://localhost:8080", "http://localhost:4200");
+				registry.addMapping("/*").allowedOrigins("http://localhost:8080/", "http://localhost:4200/");
 			}
 		};
 	}
