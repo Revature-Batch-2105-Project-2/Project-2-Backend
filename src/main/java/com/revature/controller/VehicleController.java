@@ -39,6 +39,12 @@ public class VehicleController {
 	}
 	
 //	@CrossOrigin(origins = "http://localhost:4200/")
+	@GetMapping("/customer/{id}")
+	public Vehicle getByCustomerId(@PathVariable("id") int id) {
+		return this.vs.getByCustomerId(id);
+	}
+	
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/add")
 	public Vehicle add(@RequestBody Vehicle c) {
 		return this.vs.add(c);

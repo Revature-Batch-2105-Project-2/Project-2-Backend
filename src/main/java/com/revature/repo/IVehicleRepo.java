@@ -7,5 +7,5 @@ import com.revature.beans.Vehicle;
 
 @Repository
 public interface IVehicleRepo extends CrudRepository<Vehicle, Integer>{
-
+	Vehicle findByCustomer_Id(int id);
 }
