@@ -17,6 +17,7 @@ import com.revature.beans.PartLookUp;
 import com.revature.services.PartLookUpService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(path="/parts")
 public class PartLookUpController {
 	private PartLookUpService plus;
@@ -26,31 +27,26 @@ public class PartLookUpController {
 		this.plus = plus;
 	}
 	
-//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<PartLookUp> getAll() {
 		return this.plus.getAll();
 	}
 	
-//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public PartLookUp getById(@PathVariable("id") int id) {
 		return this.plus.get(id);
 	}
 	
-//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/add")
 	public PartLookUp add(@RequestBody PartLookUp c) {
 		return this.plus.add(c);
 	}
 	
-//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PutMapping("/update")
 	public PartLookUp update(@RequestBody PartLookUp c) {
 		return this.plus.update(c);
 	}
 	
-//	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.plus.delete(id);
