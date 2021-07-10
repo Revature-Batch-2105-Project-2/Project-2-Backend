@@ -26,31 +26,31 @@ public class PartListController {
 		this.pls = pls;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<PartList> getAll() {
 		return this.pls.getAll();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public PartList getById(@PathVariable("id") int id) {
 		return this.pls.get(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/add")
 	public PartList add(@RequestBody PartList c) {
 		return this.pls.add(c);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PutMapping("/update")
 	public PartList update(@RequestBody PartList c) {
 		return this.pls.update(c);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.pls.delete(id);

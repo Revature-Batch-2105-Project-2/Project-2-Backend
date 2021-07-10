@@ -50,7 +50,7 @@ public class EmployeeController {
 //		}
 //	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/log_in")
 	public Employee login(@RequestBody Map<String, String> loginInfo) {
 		// TODO: placeholder!!!
@@ -59,37 +59,38 @@ public class EmployeeController {
 		return e;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/log_out")
 	public boolean logout() {
 		// TODO: placeholder!!!
 		return true;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping
 	public List<Employee> getAll() {
 		return this.es.getAll();
 	}
 	
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@GetMapping("/{id}")
 	public Employee getById(@PathVariable("id") int id) {
 		return this.es.get(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PostMapping("/add")
 	public Employee add(@RequestBody Employee c) {
 		return this.es.add(c);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@PutMapping("/update")
 	public Employee update(@RequestBody Employee c) {
 		return this.es.update(c);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+//	@CrossOrigin(origins = "http://localhost:4200/")
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") int id) {
 		this.es.delete(id);
