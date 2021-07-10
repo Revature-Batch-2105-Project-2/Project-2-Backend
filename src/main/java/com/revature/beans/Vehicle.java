@@ -27,10 +27,10 @@ public class Vehicle {
 	private int year;
 	private int mileage;
 	//constructors
-	public Vehicle(int id, Customer customerId, int vin, String make, String model, int year, int mileage) {
+	public Vehicle(int id, Customer customer, int vin, String make, String model, int year, int mileage) {
 		super();
 		this.id = id;
-		this.customer = customerId;
+		this.customer = customer;
 		this.vin = vin;
 		this.make = make;
 		this.model = model;
