@@ -38,7 +38,7 @@ public class VehicleController {
 	}
 	
 	@GetMapping("/customer/{id}")
-	public Vehicle getByCustomerId(@PathVariable("id") int id) {
+	public List<Vehicle> getByCustomerId(@PathVariable("id") int id) {
 		return this.vs.getByCustomerId(id);
 	}
 	
