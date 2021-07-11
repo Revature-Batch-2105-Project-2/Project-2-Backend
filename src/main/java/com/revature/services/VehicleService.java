@@ -23,7 +23,7 @@ public class VehicleService implements IVehicleService {
 	}
 
 	@Override
-	public Vehicle getByCustomerId(int id) {
+	public List<Vehicle> getByCustomerId(int id) {
 		return this.repo.findByCustomer_Id(id);
 	}
 
