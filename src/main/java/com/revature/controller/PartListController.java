@@ -37,6 +37,11 @@ public class PartListController {
 		return this.pls.get(id);
 	}
 	
+	@GetMapping("/order/{id}")
+	public List<PartList> getByOrderId(@PathVariable("id") int id) {
+		return this.pls.getByOrderId(id);
+	}
+	
 	@PostMapping("/add")
 	public PartList add(@RequestBody PartList c) {
 		return this.pls.add(c);

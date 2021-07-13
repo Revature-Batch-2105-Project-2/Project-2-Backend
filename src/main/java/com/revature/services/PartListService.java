@@ -26,6 +26,11 @@ public class PartListService implements IPartListService {
 	public List<PartList> getAll() {
 		return (List<PartList>) this.repo.findAll();
 	}
+	
+	@Override
+	public List<PartList> getByOrderId(int id) {
+		return this.repo.findAllByOrderId(id);
+	}
 
 	@Override
 	public PartList add(PartList pl) {
