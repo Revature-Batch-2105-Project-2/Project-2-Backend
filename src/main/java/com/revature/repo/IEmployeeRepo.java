@@ -7,5 +7,6 @@ import com.revature.beans.Employee;
 
 @Repository
 public interface IEmployeeRepo extends CrudRepository<Employee, Integer> {
+	Employee findByUsername(String username);
 	Employee findByUsernameAndPassword(String username, String password);
 }
