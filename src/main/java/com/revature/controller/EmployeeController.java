@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,54 +18,47 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.revature.beans.Employee;
-//import com.revature.security.ActiveUserStore;
 import com.revature.services.EmployeeService;
+import com.revature.util.JwtUtil;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(path="/employees")
 public class EmployeeController {
 	private EmployeeService es;
-//	private ActiveUserStore store;
+	private AuthenticationManager am;
+	private JwtUtil jwt;
+	private Gson gson = new GsonBuilder().create();
 	
 	@Autowired
-	public EmployeeController(EmployeeService es) {
+	public EmployeeController(EmployeeService es, AuthenticationManager am, JwtUtil jwt) {
 		this.es = es;
+		this.am = am;
+		this.jwt = jwt;
 	}
 	
-//	@Autowired
-//	public void setActiveUserStore(ActiveUserStore store) {
-//		this.store = store;
-//	}
-//	
-//	@GetMapping("/logged_in")
-//	public Employee getLoggedIn() {
-//		return this.store.getActiveEmployee();
-//	}
-//	
-//	@PostMapping("/log_in")
-//	public Employee login(@RequestBody String username, @RequestBody String password) {
-//		System.out.println("logging in with credentials " + username + " " + password);
-//		Employee e = this.es.getByUsernameAndPassword(username, password);
-//		if (e == null) return new Employee();
-//		else {
-//			this.store.setActiveEmployee(e);
-//			return e;
-//		}
-//	}
-	
 	@PostMapping("/log_in")
-	public Employee login(@RequestBody Map<String, String> loginInfo) {
-		// TODO: placeholder!!!
-		Employee e = this.es.getByUsernameAndPassword(loginInfo.get("username"), loginInfo.get("password"));
-		System.out.println("Employee " + e + " logged in!");
-		return e;
+	public String login(@RequestBody Map<String, String> info) throws Exception {
+		System.out.println("logging in! " + info);
+		
+		try {
+			this.am.authenticate(new UsernamePasswordAuthenticationToken(info.get("username"), info.get("password")));
+		} catch (BadCredentialsException e) {
+			throw new Exception("Incorrect username or password!!!", e);
+		}
+		
+		final UserDetails details = this.es.getUserDetails(info.get("username"), info.get("password"));
+		final String token = this.jwt.generateToken(details);
+		System.out.println(token);
+		return this.gson.toJson(token);
 	}
 	
 	@PostMapping("/log_out")
-	public boolean logout() {
-		// TODO: placeholder!!!
+	public boolean logout(@RequestBody String token) {
+		System.out.println("logging out with token " + token);
 		return true;
 	}
 	
