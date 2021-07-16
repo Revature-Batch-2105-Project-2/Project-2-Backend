@@ -42,6 +42,11 @@ public class WorkOrderController {
 		return this.wos.getByVehicleId(id);
 	}
 	
+	@GetMapping("/vehicle/vin/{vin}")
+	public List<WorkOrder> getByVehicleVin(@PathVariable("vin") int vin) {
+		return this.wos.getByVehicleVin(vin);
+	}
+	
 	@GetMapping("/vehicle/customer/{id}")
 	public List<WorkOrder> getByCustomerId(@PathVariable("id") int id) {
 		return this.wos.getByCustomerId(id);
