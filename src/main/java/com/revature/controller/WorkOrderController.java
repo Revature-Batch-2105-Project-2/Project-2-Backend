@@ -67,6 +67,16 @@ public class WorkOrderController {
 		return this.wos.getByCustomerName(firstName, lastName);
 	}
 	
+	@GetMapping("/complete")
+	public List<WorkOrder> getCompletedOrders() {
+		return this.wos.getCompletedOrders();
+	}
+	
+	@GetMapping("/pending")
+	public List<WorkOrder> getPendingOrders() {
+		return this.wos.getPendingOrders();
+	}
+	
 	@PostMapping("/add")
 	public WorkOrder add(@RequestBody WorkOrder c) {
 		return this.wos.add(c);
