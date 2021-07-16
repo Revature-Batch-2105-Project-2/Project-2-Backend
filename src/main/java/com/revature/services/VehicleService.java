@@ -34,7 +34,7 @@ public class VehicleService implements IVehicleService {
 	
 	@Override
 	public List<Vehicle> getByVin(int vin) {
-		return this.repo.findByVin(vin);
+		return this.repo.findByVinContaining(vin);
 	}
 
 	@Override

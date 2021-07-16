@@ -11,7 +11,7 @@ import com.revature.beans.WorkOrder;
 @Repository
 public interface IWorkOrderRepo extends CrudRepository<WorkOrder, Integer>{
 	List<WorkOrder> findByVehicle_Id(int id);
-	List<WorkOrder> findByVehicleVin(int vin);
+	List<WorkOrder> findByVehicleVinContaining(int vin);
 	
 	@Query("from WorkOrder as w left outer join w.vehicle as v left outer join v.customer as c where c.id = ?1")
 	List<WorkOrder> findByCustomerId(int id);
