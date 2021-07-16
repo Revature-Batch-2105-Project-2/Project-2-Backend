@@ -10,4 +10,5 @@ import com.revature.beans.Vehicle;
 @Repository
 public interface IVehicleRepo extends CrudRepository<Vehicle, Integer>{
 	List<Vehicle> findByCustomer_Id(int id);
+	List<Vehicle> findByVin(int vin);
 }

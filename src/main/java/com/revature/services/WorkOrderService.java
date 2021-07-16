@@ -28,6 +28,11 @@ public class WorkOrderService implements IWorkOrderService {
 	}
 	
 	@Override
+	public List<WorkOrder> getByVehicleVin(int vin) {
+		return this.repo.findByVehicleVin(vin);
+	}
+	
+	@Override
 	public List<WorkOrder> getByCustomerId(int id) {
 		return this.repo.findByCustomerId(id);
 	}

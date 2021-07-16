@@ -42,6 +42,11 @@ public class VehicleController {
 		return this.vs.getByCustomerId(id);
 	}
 	
+	@GetMapping("/vin/{vin}")
+	public List<Vehicle> getByVin(@PathVariable("vin") int vin) {
+		return this.vs.getByVin(vin);
+	}
+	
 	@PostMapping("/add")
 	public Vehicle add(@RequestBody Vehicle c) {
 		return this.vs.add(c);
