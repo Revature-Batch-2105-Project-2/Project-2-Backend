@@ -13,6 +13,8 @@ public interface IWorkOrderService {
 	public List<WorkOrder> getByCustomerEmail(String email);
 	public List<WorkOrder> getByCustomerPhoneNumber(String phone);
 	public List<WorkOrder> getByCustomerName(String firstName, String lastName);
+	public List<WorkOrder> getCompletedOrders();
+	public List<WorkOrder> getPendingOrders();
 	public WorkOrder add(WorkOrder wo);
 	public WorkOrder update(WorkOrder wo);
 	public void delete(int id);

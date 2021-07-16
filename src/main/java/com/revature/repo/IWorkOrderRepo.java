@@ -19,4 +19,7 @@ public interface IWorkOrderRepo extends CrudRepository<WorkOrder, Integer>{
 	List<WorkOrder> findByVehicleCustomerEmail(String email);
 	List<WorkOrder> findByVehicleCustomerPhoneNumber(String phone);
 	List<WorkOrder> findByVehicleCustomerFirstNameAndVehicleCustomerLastName(String firstName, String lastName);
+	
+	List<WorkOrder> findByCompleteTrue();
+	List<WorkOrder> findByCompleteFalse();
 }

@@ -51,6 +51,16 @@ public class WorkOrderService implements IWorkOrderService {
 	public List<WorkOrder> getByCustomerName(String firstName, String lastName) {
 		return this.repo.findByVehicleCustomerFirstNameAndVehicleCustomerLastName(firstName, lastName);
 	}
+	
+	@Override
+	public List<WorkOrder> getCompletedOrders() {
+		return this.repo.findByCompleteTrue();
+	}
+	
+	@Override
+	public List<WorkOrder> getPendingOrders() {
+		return this.repo.findByCompleteFalse();
+	}
 
 	@Override
 	public List<WorkOrder> getAll() {
