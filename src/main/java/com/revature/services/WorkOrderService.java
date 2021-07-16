@@ -29,7 +29,7 @@ public class WorkOrderService implements IWorkOrderService {
 	
 	@Override
 	public List<WorkOrder> getByVehicleVin(int vin) {
-		return this.repo.findByVehicleVin(vin);
+		return this.repo.findByVehicleVinContaining(vin);
 	}
 	
 	@Override

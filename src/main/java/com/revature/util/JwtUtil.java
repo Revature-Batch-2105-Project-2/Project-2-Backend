@@ -25,8 +25,8 @@ public class JwtUtil {
 	
 	public String generateToken(UserDetails details) {
 		try {
-			// should expire 10 hours after being issued
-			return JWT.create().withIssuer(details.getUsername()).withIssuedAt(new Date(System.currentTimeMillis())).withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)).sign(algorithm);
+			// should expire 24 hours after being issued
+			return JWT.create().withIssuer(details.getUsername()).withIssuedAt(new Date(System.currentTimeMillis())).withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)).sign(algorithm);
 		} catch (JWTCreationException e) {
 			e.printStackTrace();
 			return null;

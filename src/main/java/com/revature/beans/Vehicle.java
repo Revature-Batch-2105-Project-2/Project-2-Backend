@@ -21,13 +21,13 @@ public class Vehicle {
 	@ManyToOne
 	@JoinColumn(name="customerid")
 	private Customer customer;
-	private int vin;
+	private String vin;
 	private String make;
 	private String model;
 	private int year;
 	private int mileage;
 	//constructors
-	public Vehicle(int id, Customer customer, int vin, String make, String model, int year, int mileage) {
+	public Vehicle(int id, Customer customer, String vin, String make, String model, int year, int mileage) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -78,10 +78,10 @@ public class Vehicle {
 	public void setCustomerId(Customer customerId) {
 		this.customer = customerId;
 	}
-	public int getVin() {
+	public String getVin() {
 		return vin;
 	}
-	public void setVin(int vin) {
+	public void setVin(String vin) {
 		this.vin = vin;
 	}
 	public String getMake() {
