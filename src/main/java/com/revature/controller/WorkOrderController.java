@@ -37,6 +37,31 @@ public class WorkOrderController {
 		return this.wos.get(id);
 	}
 	
+	@GetMapping("/vehicle/{id}")
+	public List<WorkOrder> getByVehicleId(@PathVariable("id") int id) {
+		return this.wos.getByVehicleId(id);
+	}
+	
+	@GetMapping("/vehicle/customer/{id}")
+	public List<WorkOrder> getByCustomerId(@PathVariable("id") int id) {
+		return this.wos.getByCustomerId(id);
+	}
+	
+	@GetMapping("/vehicle/customer/email/{email}")
+	public List<WorkOrder> getByCustomerEmail(@PathVariable("email") String email) {
+		return this.wos.getByCustomerEmail(email);
+	}
+	
+	@GetMapping("/vehicle/customer/phone/{phone}")
+	public List<WorkOrder> getByCustomerPhoneNumber(@PathVariable("phone") String phone) {
+		return this.wos.getByCustomerPhoneNumber(phone);
+	}
+	
+	@GetMapping("/vehicle/customer/name/{first}_{last}")
+	public List<WorkOrder> getByCustomerName(@PathVariable("first") String firstName, @PathVariable("last") String lastName) {
+		return this.wos.getByCustomerName(firstName, lastName);
+	}
+	
 	@PostMapping("/add")
 	public WorkOrder add(@RequestBody WorkOrder c) {
 		return this.wos.add(c);
