@@ -25,7 +25,7 @@ import com.revature.services.EmployeeService;
 import com.revature.util.JwtUtil;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com"})
 @RequestMapping(path="/employees")
 public class EmployeeController {
 	private EmployeeService es;

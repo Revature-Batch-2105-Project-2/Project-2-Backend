@@ -17,7 +17,7 @@ import com.revature.beans.WorkOrder;
 import com.revature.services.WorkOrderService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com"})
 @RequestMapping(path="/workorders")
 public class WorkOrderController {
 	private WorkOrderService wos;
