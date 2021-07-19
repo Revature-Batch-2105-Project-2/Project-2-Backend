@@ -17,7 +17,7 @@ import com.revature.beans.Vehicle;
 import com.revature.services.VehicleService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com"})
 @RequestMapping(path="/vehicles")
 public class VehicleController {
 	private VehicleService vs;
