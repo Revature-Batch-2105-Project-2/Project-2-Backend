@@ -17,7 +17,7 @@ import com.revature.beans.Customer;
 import com.revature.services.CustomerService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com"})
+@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com/"})
 @RequestMapping(path="/customers")
 public class CustomerController {
 	private CustomerService cs;
