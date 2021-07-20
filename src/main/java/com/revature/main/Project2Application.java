@@ -31,7 +31,7 @@ public class Project2Application extends SpringBootServletInitializer {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/*").allowedOrigins("http://localhost:8080/", "http://localhost:4200/");
+				registry.addMapping("/*").allowedOrigins("http://localhost:8080/", "http://localhost:4200/", "http://ec2-54-183-249-67.us-west-1.compute.amazonaws.com:8080/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com/");
 			}
 		};
 	}
