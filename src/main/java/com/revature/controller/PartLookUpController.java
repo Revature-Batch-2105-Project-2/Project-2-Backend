@@ -17,7 +17,7 @@ import com.revature.beans.PartLookUp;
 import com.revature.services.PartLookUpService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com"})
+@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com/"})
 @RequestMapping(path="/parts")
 public class PartLookUpController {
 	private PartLookUpService plus;

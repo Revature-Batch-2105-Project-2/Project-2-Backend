@@ -17,7 +17,7 @@ import com.revature.beans.PartList;
 import com.revature.services.PartListService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com"})
+@CrossOrigin(origins = {"http://localhost:4200/", "http://revature-bucket.s3-website-us-west-1.amazonaws.com/"})
 @RequestMapping(path="/partlists")
 public class PartListController {
 	private PartListService pls;
